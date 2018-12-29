@@ -2,17 +2,22 @@ function checkImg(){
     url = "url('../createImg?randomNum="+Math.random()+"')";
     $("#verify").css("background-image",url);
 }
-// function login(){
-//     $.ajax({
-//         type:"post",
-//         url:"/login",
-//         data:{ user:$("#user").val(),pwd:$("#pwd").val()},
-//         success: function (data) {
-//             alert(data);
-//         }
-//     });
-//     checkImg();
-// }
+function login(){
+    $.ajax({
+        type:"post",
+        url:"/login",
+        data:{ user:$("#user").val(),pwd:$("#pwd").val()},
+        success: function (data) {
+            if(data === true){
+                alert("登录成功");
+            }else{
+                alert("用户名或密码错误！");
+                $("#verify").val("");
+            }
+        }
+    });
+    checkImg();
+}
 $(function () {
     $("#formOne").validate({
         rules:{
@@ -45,7 +50,10 @@ $(function () {
                 .find( "#"+element.attr( "id" )+"_pass" )
                 .append( error );
         },
-        onkeyup:false
+        onkeyup:false,
+        submitHandler: function() {
+            login();
+        }
     });
     checkImg();
 });
