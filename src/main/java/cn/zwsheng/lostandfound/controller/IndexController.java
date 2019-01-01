@@ -15,4 +15,11 @@ public class IndexController {
         modelAndView.setViewName("index");
         return modelAndView;
     }
+    @RequestMapping("/test")
+    public ModelAndView test(HttpServletRequest request, HttpServletResponse response){
+        ModelAndView modelAndView = new ModelAndView();
+        System.out.print("test");
+        modelAndView.setViewName("/test.html");
+        return modelAndView;
+    }
 }
