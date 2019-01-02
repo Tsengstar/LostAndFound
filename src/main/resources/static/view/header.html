@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+>
+<body>
+
+<div th:fragment="nav">
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar header-nav navbar-expand-lg">
+            <div class="container">
+                <!-- Brand -->
+                <a class="navbar-brand" href="#">LostAndFound <span class="theme-bg"></span></a>
+                <!-- / -->
+
+                <!-- Mobile Toggle -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCropar" aria-controls="navbarCropar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <!-- / -->
+
+                <!-- Top Menu -->
+                <div class="collapse navbar-collapse justify-content-end" id="navbarCropar">
+                    <ul class="navbar-nav align-items-start align-items-lg-center">
+                        <li><a class="nav-link active" href="index.html">Home</a></li>
+                        <li><a class="nav-link" href="about.html">About Us</a></li>
+                        <li><a class="nav-link" href="services.html">Services</a></li>
+                        <li><a class="nav-link" href="team.html">Our Team</a></li>
+                        <li><a class="nav-link" href="contact.html">Contact</a></li>
+                        <li><a class="nav-link nav-link-btn m-btn m-btn-theme" href="#">Get A Quote</a></li>
+                    </ul>
+                </div>
+                <!-- / -->
+            </div><!-- Container -->
+        </nav> <!-- Navbar -->
+    </header>
+    <!-- Header End -->
+</div>
+</body>
+</html>
