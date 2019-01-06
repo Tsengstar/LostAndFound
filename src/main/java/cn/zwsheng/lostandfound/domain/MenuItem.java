@@ -11,7 +11,7 @@ import javax.persistence.*;
 @ToString
 @Entity
 @Table(name = "menuitem")
-public class MenuItem {
+public class MenuItem implements Comparable<MenuItem>{
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,6 +42,11 @@ public class MenuItem {
     private int sort;   //菜单排序
 
 
-
-
+    @Override
+    public int compareTo(MenuItem menuItem) {
+        if(this.sort >= menuItem.getSort()){
+            return 1;
+        }
+        return -1;
+    }
 }

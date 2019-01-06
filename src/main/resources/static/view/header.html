@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
->
+<html xmlns:th="http://www.thymeleaf.org">
 <body>
 
 <div th:fragment="nav">
@@ -35,7 +34,19 @@
             </div><!-- Container -->
         </nav> <!-- Navbar -->
     </header>
-    <!-- Header End -->
+    <!-- Header End -->-0
+    <script type="text/javascript">
+        $(function () {
+            $.ajax({
+                url:"/getMenuitems",
+                type:"Post",
+                success: function (data) {
+                    alert(data);
+                },
+                dataType: "json"
+            });
+        })
+    </script>
 </div>
 </body>
 </html>
