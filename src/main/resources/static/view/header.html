@@ -21,32 +21,45 @@
 
                 <!-- Top Menu -->
                 <div class="collapse navbar-collapse justify-content-end" id="navbarCropar">
-                    <ul class="navbar-nav align-items-start align-items-lg-center">
-                        <li><a class="nav-link active" href="index.html">Home</a></li>
-                        <li><a class="nav-link" href="about.html">About Us</a></li>
-                        <li><a class="nav-link" href="services.html">Services</a></li>
-                        <li><a class="nav-link" href="team.html">Our Team</a></li>
-                        <li><a class="nav-link" href="contact.html">Contact</a></li>
-                        <li><a class="nav-link nav-link-btn m-btn m-btn-theme" href="#">Get A Quote</a></li>
+                    <ul class="navbar-nav align-items-start align-items-lg-center" id="navMenu">
+                        <!--<li><a class="nav-link" href="index.html">Home</a></li>-->
+                        <!--<li><a class="nav-link" href="about.html">About Us</a></li>-->
+                        <!--<li><a class="nav-link" href="services.html">Services</a></li>-->
+                        <!--<li><a class="nav-link" href="team.html">Our Team</a></li>-->
+                        <!--<li><a class="nav-link" href="contact.html">Contact</a></li>-->
+                        <!--<li><a class="nav-link nav-link-btn m-btn m-btn-theme" href="#">Get A Quote</a></li>-->
                     </ul>
                 </div>
                 <!-- / -->
             </div><!-- Container -->
         </nav> <!-- Navbar -->
     </header>
-    <!-- Header End -->-0
-    <script type="text/javascript">
-        $(function () {
-            $.ajax({
-                url:"/getMenuitems",
-                type:"Post",
-                success: function (data) {
-                    alert(data);
-                },
-                dataType: "json"
-            });
-        })
-    </script>
+    <!-- Header End -->
+    <!--/* -->
+    <!--<script type="text/javascript">-->
+        <!--$(function () {-->
+            <!--$.ajax({-->
+                <!--url:"/getOneMenuitems",-->
+                <!--type:"Post",-->
+                <!--success: function (data) {-->
+                    <!--$("#navMenu").html("");-->
+                    <!--var _html="";-->
+                    <!--var currentHref = window.location.href;-->
+                    <!--alert(currentHref);-->
+                    <!--for(var i=0;i<data.length;i++){-->
+                        <!--if(!currentHref.indexOf(data[i].menuUrl)){-->
+                            <!--_html += "<li><a class=\"nav-link active\" href=\""+data[i].menuUrl+"\">"+data[i].menuName+"</a></li>"-->
+                        <!--}else{-->
+                            <!--_html += "<li><a class=\"nav-link\" href=\""+data[i].menuUrl+"\">"+data[i].menuName+"</a></li>"-->
+                        <!--}-->
+                    <!--}-->
+                    <!--$("#navMenu").html(_html);-->
+                <!--},-->
+                <!--dataType: "json"-->
+            <!--});-->
+        <!--})-->
+    <!--</script>-->
+    <!--*/-->
 </div>
 </body>
 </html>

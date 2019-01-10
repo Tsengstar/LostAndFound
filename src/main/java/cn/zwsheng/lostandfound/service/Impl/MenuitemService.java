@@ -6,7 +6,9 @@ import cn.zwsheng.lostandfound.service.IMenuitemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 @Service("menuitemService")
 public class MenuitemService implements IMenuitemService {
@@ -15,8 +17,8 @@ public class MenuitemService implements IMenuitemService {
     private IMenuitemDao menuitemDao;
 
 
-    public Map<MenuItem, List<MenuItem>> getMenuitem() {
-        Map<MenuItem,List<MenuItem>> maps = new HashMap<MenuItem,List<MenuItem>>();     //创建结果菜单menuList
+    public List<List<MenuItem>> getTwoMenuitems() {
+        List<List<MenuItem>> result = new ArrayList<List<MenuItem>>();     //创建结果菜单menuList
         List<MenuItem> oneMenu = menuitemDao.getMenuItemsByParentId("-1");  //一级菜单
         List<MenuItem> twoMenu = menuitemDao.getMenuItemsByParentIdNot("-1");   //二级菜单
         Collections.sort(oneMenu);
@@ -30,14 +32,13 @@ public class MenuitemService implements IMenuitemService {
                     TempChildMenu.add(twoMenus);//装载子菜单
                 }
             }
-            maps.put(oneMenus,TempChildMenu);//装载父菜单
+            result.add(TempChildMenu);//装载父菜单
         }
-        System.out.println(maps);
-        return maps;
+        System.out.println(result);
+        return result;
     }
 
-    @Override
-    public List<MenuItem> getMenuitems() {
+    public List<MenuItem> getOneMenuitems() {
         List<MenuItem> menuItems = menuitemDao.getMenuItemsByParentId("-1");
         Collections.sort(menuItems);
         return menuItems;
