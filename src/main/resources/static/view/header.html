@@ -5,10 +5,23 @@
 <div th:fragment="nav">
     <!-- Header -->
     <header class="header">
+        <div class="top-bar theme-bg">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-8 text-center text-md-left">
+                        <div class="mail">17876253370@163.com | Phone: +86 178 762 53370</div>
+                    </div>
+                    <div class="col-12 col-md-4 text-center text-md-right">
+                        <div class="social-icons-light">
+                        </div>
+                    </div>
+                </div> <!-- row -->
+            </div><!-- container -->
+        </div>
         <nav class="navbar header-nav navbar-expand-lg">
             <div class="container">
                 <!-- Brand -->
-                <a class="navbar-brand" href="#">LostAndFound <span class="theme-bg"></span></a>
+                <a class="navbar-brand" href="/">LostAndFound <span class="theme-bg"></span></a>
                 <!-- / -->
 
                 <!-- Mobile Toggle -->
@@ -22,12 +35,18 @@
                 <!-- Top Menu -->
                 <div class="collapse navbar-collapse justify-content-end" id="navbarCropar">
                     <ul class="navbar-nav align-items-start align-items-lg-center" id="navMenu">
+                        <li th:each="menuitem : ${menuitems}">
+                            <a class="nav-link" th:text="${menuitem.menuName}" th:href="${menuitem.menuUrl}"></a>
+                        </li>
+                        <li><a class="nav-link nav-link-btn m-btn m-btn-theme" href="/login.html">登陆</a></li>
+                        <!--/*-->
                         <!--<li><a class="nav-link" href="index.html">Home</a></li>-->
                         <!--<li><a class="nav-link" href="about.html">About Us</a></li>-->
                         <!--<li><a class="nav-link" href="services.html">Services</a></li>-->
                         <!--<li><a class="nav-link" href="team.html">Our Team</a></li>-->
                         <!--<li><a class="nav-link" href="contact.html">Contact</a></li>-->
                         <!--<li><a class="nav-link nav-link-btn m-btn m-btn-theme" href="#">Get A Quote</a></li>-->
+                        <!--*/-->
                     </ul>
                 </div>
                 <!-- / -->
@@ -35,6 +54,16 @@
         </nav> <!-- Navbar -->
     </header>
     <!-- Header End -->
+    <script type="text/javascript">
+        $(function(){
+            $('#navMenu').find('li').each(function() {
+                var currentHref = window.location.href;
+                if(currentHref.indexOf($(this).attr(("href")))){
+                    $(this).addClass("active");
+                }
+            })
+        })
+    </script>
     <!--/* -->
     <!--<script type="text/javascript">-->
         <!--$(function () {-->

@@ -8,9 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Controller
-@RequestMapping("/")
 public class IndexController {
-    @RequestMapping("/index")
+    @RequestMapping("/")
     public ModelAndView index(HttpServletRequest request, HttpServletResponse response){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("index");
