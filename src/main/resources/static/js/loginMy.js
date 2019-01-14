@@ -9,7 +9,7 @@ function login(){
         data:{ user:$("#user").val(),pwd:$("#pwd").val()},
         success: function (data) {
             if(data === true){
-                alert("登录成功");
+                window.location.href = "/";
             }else{
                 alert("用户名或密码错误！");
                 $("#verify").val("");

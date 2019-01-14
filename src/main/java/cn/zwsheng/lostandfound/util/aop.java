@@ -18,7 +18,7 @@ public class aop {
     @Autowired
     private IMenuitemService menuitemService;
 
-    @Pointcut("execution(public * cn.zwsheng.lostandfound.controller..*.*(..))")
+    @Pointcut("execution(public * cn.zwsheng.lostandfound.controller..*.*View(..))")
     public void menu() {
     }
 

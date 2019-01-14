@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class IndexController {
     @RequestMapping("/")
-    public ModelAndView index(HttpServletRequest request, HttpServletResponse response){
+    public ModelAndView indexView(HttpServletRequest request, HttpServletResponse response){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("index");
         return modelAndView;
