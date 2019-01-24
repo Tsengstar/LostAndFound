@@ -87,7 +87,7 @@ public class UserController {
         return false;
     }
     @RequestMapping("/login.html")
-    public ModelAndView loginView(){
+    public ModelAndView loginViews(){
         return new ModelAndView("login");
     }
 }
