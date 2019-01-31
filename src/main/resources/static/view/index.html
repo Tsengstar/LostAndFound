@@ -1,37 +1,12 @@
 ﻿<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
->
+<html xmlns:th="http://www.thymeleaf.org">
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Page Title -->
-  <title>肇庆学院失物认领平台-首页</title>
-  <!-- / -->
-
-  <!---Font Icon-->
-  <link href="../plugin/font-awesome/css/fontawesome-all.min.css" rel="stylesheet">
-  <link href="../plugin/themify-icons/themify-icons.css" rel="stylesheet">
-  <!-- / -->
-
-  <!-- Plugin CSS -->
-  <link href="../plugin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../plugin/owl-carousel/css/owl.carousel.min.css" rel="stylesheet">
-  <!-- / -->
-
-  <!-- Theme Style -->
-  <link href="../css/styles.css" rel="stylesheet">
-  <link href="../css/color/default.css" rel="stylesheet" id="color_theme">
-  <!-- / -->
-  <script src="../js/jquery-3.2.1.min.js"></script>
-</head>
+<head th:include="common/reference :: css"></head>
 
 <!-- Body Start -->
 <body>
 
-<div th:include="header :: nav"></div>
+<div th:include="common/header :: nav"></div>
 <main>
   <!-- Home Banner Start -->
   <section class="home-banner" style="background-image: url(../image/home-banner.jpg);">
@@ -337,19 +312,9 @@
   <!-- Conatct End -->
 
 </main>
-<div th:include="footer :: copyright"></div>
-<!-- jQuery -->
+<div th:include="common/footer :: copyright"></div>
+<div th:include="common/reference :: js"></div>
 
-  <script src="../js/jquery-migrate-3.0.0.min.js"></script>
-
-  <!-- Plugins -->
-  <script src="../plugin/bootstrap/js/popper.min.js"></script>
-  <script src="../plugin/bootstrap/js/popper.min.js"></script>
-  <script src="../plugin/bootstrap/js/bootstrap.min.js"></script>
-  <script src="../plugin/owl-carousel/js/owl.carousel.min.js"></script>
-
-  <!-- custom -->
-  <script src="../js/custom.js"></script>
 </body>
 <!-- Body End -->
 

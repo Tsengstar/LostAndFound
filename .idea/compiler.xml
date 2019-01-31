@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="LostAndFound" target="1.8" />
+      <module name="LostAndFound" target="1.11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

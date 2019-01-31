@@ -11,7 +11,7 @@ import java.util.Collections;
 import java.util.List;
 
 @Service("menuitemService")
-public class MenuitemService implements IMenuitemService {
+public class MenuitemServiceImpl implements IMenuitemService {
 
     @Autowired
     private IMenuitemDao menuitemDao;

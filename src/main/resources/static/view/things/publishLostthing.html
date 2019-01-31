@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="common/reference :: css"></head>
+
+<!-- Body Start -->
+<body>
+
+<div th:include="common/header :: nav"></div>
+<main>
+    -->
+    <section class="section" style="background-image: url(/image/home-banner.jpg);">
+        <div class="container">
+            <!--<div class="row justify-content-center text-center">-->
+            <div class="row">
+                <div class="col-md-12 m-15px-tb">
+                    <!-- Contact Form -->
+                    <div class="contact-form box-shadow">
+                        <h7 class="font-alt m-0px m-20px-b">发布寻物启事</h7>
+                        <hr/>
+                        <form method="post" action="/things/publishLostthing" class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label for="thingName" class="col-sm-2 control-label">物品名称：</label>
+                                <div class="col-sm-10">
+                                    <input name="thingName" id="thingName" placeholder="Name" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="thingType" class="col-md-2 control-label">物品种类：</label>
+                                <div class="col-md-4">
+                                <select id="thingType" name="thingType" class="form-control">
+                                    <option th:each="thingType:${thingTypes}" th:text="${thingType.name}" th:value="${thingType.id}"></option>
+                                </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="lostPlace" class="col-md-2 control-label">丢失地点：</label>
+                                <div class="col-md-10">
+                                    <input name="lostPlace" id="lostPlace" placeholder="Place" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <!--<div class="form-group">-->
+                                <!--<label for="thingImg" class="col-md-2 control-label">失物图片：</label>-->
+                                <!--<div class="col-md-10">-->
+                                    <!--<input type="file" id="thingImg">-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <div class="form-group">
+                                <label for="thingDes" class="col-md-2 control-label">物品描述：</label>
+                                <div class="col-md-10">
+                                    <textarea name="thingDes" id="thingDes" placeholder="thingDes" class="form-control" rows="3"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="lostTime" class="col-md-2 control-label">丢失时间：</label>
+                                <div class="col-md-10">
+                                    <input name="lostTime" id="lostTime" placeholder="LostTime" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="m-btn-bar col-md-2">
+                                <input type="submit" class="m-btn btn-block m-btn-theme" value="&nbsp;发布">
+                            </div>
+                        </form>
+                    </div>
+                    <!-- / -->
+                </div><!-- col -->
+                <!--<div class="col-md-6 m-15px-tb">-->
+                    <!--<div class="contact-map box-shadow">-->
+                        <!--<div class="embed-responsive embed-responsive-16by9 h-100">-->
+                            <!--<iframe class="embed-responsive-item" src="http://www.google.cn/maps/embed?pb=!1m14!1m8!1m3!1d3151.840107317064!2d144.955925!3d-37.817214!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb6899234e561db11!2sEnvato!5e0!3m2!1sen!2sin!4v1520156366883" allowfullscreen=""></iframe>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            </div><!-- row -->
+        </div><!-- container-->
+    </section>
+</main>
+<div th:include="common/footer :: copyright"></div>
+<div th:include="common/reference :: js"></div>
+</body>
+</html>
