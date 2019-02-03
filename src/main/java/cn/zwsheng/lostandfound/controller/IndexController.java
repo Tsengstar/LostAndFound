@@ -12,6 +12,7 @@ public class IndexController {
     @RequestMapping("/")
     public ModelAndView indexView(HttpServletRequest request, HttpServletResponse response){
         ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("title","首页");
         modelAndView.setViewName("index");
         return modelAndView;
     }
