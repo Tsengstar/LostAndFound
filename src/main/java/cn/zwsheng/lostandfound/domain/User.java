@@ -24,18 +24,33 @@ public class User implements Serializable {
     @Column(name = "password")
     private String password;
 
-    @Column(name = "user_type")
-    private int userType;
+    @Column(name = "grade")
+    private String grade;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "nickname")
+    private String nickName;
+
+    @Column(name = "telphone")
+    private String telPhone;
+
+    @Column(name = "email")
+    private String email;
+
+    @Column(name = "qq")
+    private String qq;
 
     @Column(name = "state")
     private int state;
 
-    @Column(name = "create_time")
+    @Column(name = "createtime")
     private Date createTime;
 
-    @Column(name = "is_new")
+    @Column(name = "isnew")
     private int isNew;
 
-    @Column(name = "login_time")
-    private Date loginTime;
+    @Column(name = "lastlogintime")
+    private Date lastLoginTime;
 }

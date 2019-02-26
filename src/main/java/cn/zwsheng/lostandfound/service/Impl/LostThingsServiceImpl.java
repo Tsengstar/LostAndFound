@@ -10,16 +10,16 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
+import java.util.List;
 
 @Service("LostThingsService")
 public class LostThingsServiceImpl implements ILostThingsService {
     @Autowired
     private ILostThingsDao lostThingsDao;
 
-    public LostThings getOne() {
-        LostThings result = lostThingsDao.getOne(1L);
-        System.out.println(result);
-        return result;
+    @Override
+    public List<LostThings> findAll() {
+        return lostThingsDao.findAll();
     }
 
     @Override
