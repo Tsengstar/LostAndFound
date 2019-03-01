@@ -1,52 +1,73 @@
 package cn.zwsheng.lostandfound.domain;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
 import javax.persistence.*;
 
-@Getter
-@Setter
-@ToString
 @Entity
+@Data
 @Table(name = "menuitem")
-public class MenuItem implements Comparable<MenuItem>{
-    @Id
-    @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;    //id
+public class MenuItem implements java.io.Serializable,Comparable<MenuItem>{
 
-    @Column(name = "menu_id")
-    private String menuId;     //菜单id
+	private static final long serialVersionUID = 1L;
 
-    @Column(name = "menu_name")
-    private String menuName;    //菜单名称
+	@Id
+	@Column
+	@GeneratedValue
+	private Integer id;
 
-    @Column(name = "menu_url")
-    private String menuUrl;     //菜单路径
+	@Column(name = "menuid")
+	private String menuId;
 
-    @Column(name = "parent_id")
-    private String parentId;    //父菜单id
+	@Column(name = "menuitemname")
+	private String menuItemName;
 
-    @Column(name = "status")
-    private int status;     //状态
+	@Column(name = "menuitemurl")
+	private String menuItemUrl;
 
-    @Column(name = "menu_des")
-    private  String menuDes;    //菜单描述
+	@Column(name = "parentid")
+	private String parentId;
 
-    @Column(name = "authority")
-    private String authority;   //菜单访问权限
+	@Column(name = "status")
+	private int status;
 
-    @Column(name = "sort")
-    private int sort;   //菜单排序
+	@Column(name = "menuitemdes")
+	private String menuItemDes;
 
+	@Column(name = "authority")
+	private int authority;
 
-    @Override
-    public int compareTo(MenuItem menuItem) {
-        if(this.sort >= menuItem.getSort()){
-            return 1;
-        }
-        return -1;
-    }
+	@Column(name = "sort")
+	private Integer sort;
+
+	public MenuItem() {
+	}
+
+	public MenuItem(String menuId, String menuItemName, int status,
+                    int authority) {
+		this.menuId = menuId;
+		this.menuItemName = menuItemName;
+		this.status = status;
+		this.authority = authority;
+	}
+
+	public MenuItem(String menuId, String menuItemName, String menuItemUrl,
+                    String parentId, int status, String menuItemDes, int authority,
+                    Integer sort) {
+		this.menuId = menuId;
+		this.menuItemName = menuItemName;
+		this.menuItemUrl = menuItemUrl;
+		this.parentId = parentId;
+		this.status = status;
+		this.menuItemDes = menuItemDes;
+		this.authority = authority;
+		this.sort = sort;
+	}
+	@Override
+	public int compareTo(MenuItem menuItem) {
+		if(this.sort >= menuItem.getSort()){
+			return 1;
+		}
+		return -1;
+	}
 }
