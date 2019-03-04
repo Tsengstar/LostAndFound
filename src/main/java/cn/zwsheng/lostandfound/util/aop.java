@@ -24,9 +24,8 @@ public class aop {
 
     @Before("menu()")
     public void menuBefore() throws Throwable{
-        System.out.println("before");
-        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-        request.setAttribute("menuitems",menuitemService.getOneMenuitems());
+//        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+//        request.setAttribute("menuitems",menuitemService.getOneMenuitems());
     }
 
 }

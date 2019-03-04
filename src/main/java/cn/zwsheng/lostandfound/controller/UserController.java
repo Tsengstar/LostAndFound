@@ -1,9 +1,10 @@
 package cn.zwsheng.lostandfound.controller;
 
-import cn.zwsheng.lostandfound.domain.Loginlog;
+import cn.zwsheng.lostandfound.domain.LoginLog;
 import cn.zwsheng.lostandfound.domain.User;
 import cn.zwsheng.lostandfound.service.ILoginlogService;
 import cn.zwsheng.lostandfound.service.IUserService;
+import cn.zwsheng.lostandfound.util.UserAgentParserUtil;
 import cn.zwsheng.lostandfound.util.VerifyUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,19 +37,18 @@ public class UserController {
         HttpSession session = request.getSession();
         String username = (String) request.getParameter("user");
         String password = (String) request.getParameter("pwd");
-        String ip = request.getRemoteAddr();
+        // 写入登录日志信息
+        String agent = request.getHeader("User-Agent");
+        String osname = UserAgentParserUtil.getOS(agent);
+        String browserName = UserAgentParserUtil.getBrowser(agent);
+        String loginIp = UserAgentParserUtil.getRemoteHost(request);
         User current = userService.login(username, password);
-        Loginlog loginlog = new Loginlog();
-        loginlog.setIp(ip);
-        loginlog.setLoginTime(new Date());
-        loginlog.setUsername(username);
+        LoginLog loginlog = new LoginLog(username,osname,browserName,loginIp,new Date(),current==null?null:current.getId());
         if(current==null){
-            loginlog.setState(Loginlog.LOGIN_FAILED);
             loginlogService.save(loginlog);
             return false;
         }else{
-            loginlog.setState(Loginlog.LOGIN_SUCCESS);
-            session.setAttribute("logininfo",current);
+            session.setAttribute("current",current);
             session.setMaxInactiveInterval(1800);
             Cookie cookie = new Cookie("JSESSIONID", session.getId());
             cookie.setMaxAge(60*30);

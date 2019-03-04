@@ -1,8 +1,8 @@
 package cn.zwsheng.lostandfound.service;
 
 
-import cn.zwsheng.lostandfound.domain.Loginlog;
+import cn.zwsheng.lostandfound.domain.LoginLog;
 
 public interface ILoginlogService {
-    void save(Loginlog loginlog);
+    void save(LoginLog loginlog);
 }

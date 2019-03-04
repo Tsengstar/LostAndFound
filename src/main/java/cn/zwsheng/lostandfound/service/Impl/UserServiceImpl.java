@@ -1,8 +1,6 @@
 package cn.zwsheng.lostandfound.service.Impl;
 
-import cn.zwsheng.lostandfound.dao.ILoginlogDao;
 import cn.zwsheng.lostandfound.dao.IUserDao;
-import cn.zwsheng.lostandfound.domain.Loginlog;
 import cn.zwsheng.lostandfound.domain.User;
 import cn.zwsheng.lostandfound.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +20,7 @@ public class UserServiceImpl implements IUserService {
     }
 
     public User login(String username, String password) {
-        User current = userDao.findByUsernameAndPassword(username,password);
+        User current = userDao.findByUserNameAndPassword(username,password);
         return current;
     }
 }

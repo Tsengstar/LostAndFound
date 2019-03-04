@@ -93,5 +93,4 @@ public class PickThings implements java.io.Serializable {
 		this.userName = userName;
 		this.uid = uid;
 	}
-	
 }

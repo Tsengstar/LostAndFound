@@ -28,8 +28,11 @@
                                             </div>
                                             <div class="col-md-6 column">
                                                 <a href="#"><p><font size="4" style="line-height: normal;" color="black" th:text="${lostThing.thingsName}">钱包。</font></p></a>
-                                                <p><font size="2" color="#777" th:text="'发布者：'+${lostThing.user.name}">发布者：郑</font></p>
-                                                <p><font size="2" color="#777" th:text="'地点：'+${lostThing.lostPlace}">地点：我家</font></p>
+                                                <p><font size="2" color="#777" th:text="'发布者：'+${lostThing.user.name}">发布者：郑</font>
+                                                    &nbsp;&nbsp;&nbsp;<font size="2" color="#777" th:text="'地点：'+${lostThing.lostPlace}">地点：我家</font></p>
+                                                <p>
+                                                    <font size="2" color="#777" th:text="'丢失时间：'+${lostThing.lostTime.toLocaleString().split(' ')[0]}">地点：我家</font>
+                                                </p>
                                             </div>
                                             <div class="col-md-4 column" style="text-align: right;">
                                                 <font size="2" color="#777" th:text="'发布时间：'+${lostThing.publishTime.toLocaleString()}">发布时间：2019-02-04 16:13:58</font>
@@ -37,17 +40,6 @@
                                         </div>
                                     </div>
                                 </div>
-                            </li>
-                            <li class="list-group-item" style="background: #f4f4f4">
-                                <ul class="pagination">
-                                    <li><a href="#">&laquo;</a></li>
-                                    <li><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                    <li><a href="#">&raquo;</a></li>
-                                </ul>
                             </li>
                         </ul>
                     </div>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="common/reference :: css"></head>
+
+<!-- Body Start -->
+<body>
+<div th:include="common/header :: nav"></div>
+<main>
+    <style>
+        p{line-height: 10px}
+    </style>
+    -->
+    <section class="section" style="background-image: url(/image/home-banner.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 m-15px-tb">
+                    <div class="contact-form box-shadow">
+                        <div class="font-alt m-0px m-20px-b"><h3 style="display: inline;">拾物招领信息&nbsp;&nbsp;&nbsp;&nbsp;</h3><a href="/things/publishPickthing.html" class="btn btn-primary"><font color="white">发布拾物招领</font></a></div>
+                        <hr/>
+                        <ul class="list-group">
+                            <li class="list-group-item" th:each="pickThing:${pickThingList}" style="background: #f4f4f4">
+                                <div class="row clearfix">
+                                    <div class="col-md-12 column">
+                                        <div class="row clearfix">
+                                            <div class="col-md-2 column">
+                                                <img style="width: 90px; height: 90px; border-top-left-radius: 50%; border-top-right-radius: 50%; border-bottom-right-radius: 50%; border-bottom-left-radius: 50%; border: 5px solid rgb(255, 255, 255); display: inline;" th:alt="${pickThing.thingsName}" th:src="'/upload/'+${pickThing.thingsImg}" />
+                                            </div>
+                                            <div class="col-md-6 column">
+                                                <a href="#"><p><font size="4" style="line-height: normal;" color="black" th:text="${pickThing.thingsName}">钱包。</font></p></a>
+                                                <p><font size="2" color="#777" th:text="'发布者：'+${pickThing.user.name}">发布者：郑</font>
+                                                    &nbsp;&nbsp;&nbsp;<font size="2" color="#777" th:text="'地点：'+${pickThing.pickPlace}">地点：我家</font></p>
+                                                <p>
+                                                    <font size="2" color="#777" th:text="'拾取时间：'+${pickThing.pickTime.toLocaleString().split(' ')[0]}">地点：我家</font>
+                                                </p>
+                                            </div>
+                                            <div class="col-md-4 column" style="text-align: right;">
+                                                <font size="2" color="#777" th:text="'发布时间：'+${pickThing.publishTime.toLocaleString()}">发布时间：2019-02-04 16:13:58</font>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<div th:include="common/footer :: copyright"></div>
+<div th:include="common/reference :: js"></div>
+</body>
+</html>

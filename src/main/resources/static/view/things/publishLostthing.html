@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head th:include="common/reference :: css"></head>
+<head th:include="common/reference::css"></head>
 
 <!-- Body Start -->
 <body>
@@ -29,7 +29,14 @@
                                 <label for="thingType" class="col-md-2 control-label">物品种类：</label>
                                 <div class="col-md-4">
                                 <select id="thingType" name="thingType" class="form-control">
-                                    <option th:each="thingType:${thingTypes}" th:text="${thingType.name}" th:value="${thingType.id}"></option>
+                                    <option value="all">--请选择物件类型--</option>
+                                    <option value="card">卡类证件</option>
+                                    <option value="book">书籍资料</option>
+                                    <option value="clo">衣物服饰</option>
+                                    <option value="per_eff">随身物件</option>
+                                    <option value="elec">电子数码</option>
+                                    <option value="veh">交通工具</option>
+                                    <option value="other">其他宝贝</option>
                                 </select>
                                 </div>
                             </div>
@@ -54,7 +61,8 @@
                             <div class="form-group">
                                 <label for="lostTime" class="col-md-2 control-label">丢失时间：</label>
                                 <div class="col-md-10">
-                                    <input name="lostTime" id="lostTime" placeholder="LostTime" class="form-control" type="text">
+                                    <input class="form-control input-inline input-sm form_datetime"
+                                           name="lostTime" id="lostTime" size="12" type="text" placeholder="时间格式：年-月-日"/>
                                 </div>
                             </div>
                             <div class="m-btn-bar col-md-2">

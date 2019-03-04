@@ -17,5 +17,5 @@ public interface IUserDao extends JpaRepository<User,Long> {
      */
     List<User> findAll();
 
-    User findByUsernameAndPassword(String username, String password);
+    User findByUserNameAndPassword(String username, String password);
 }

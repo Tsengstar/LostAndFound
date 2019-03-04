@@ -1,7 +1,6 @@
 package cn.zwsheng.lostandfound.controller;
 
 import cn.zwsheng.lostandfound.service.ILostThingsService;
-import cn.zwsheng.lostandfound.service.IThingTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,13 +20,10 @@ public class LostThingsController {
     @Autowired
     private ILostThingsService lostThingsService;
 
-    @Autowired
-    private IThingTypeService thingTypeService;
-
     @RequestMapping("/publishLostthing")
-    public String publishLostthing(HttpServletRequest request, @RequestParam("thingImg") MultipartFile thingImg){
+    public ModelAndView publishLostthing(HttpServletRequest request, @RequestParam("thingImg") MultipartFile thingImg){
         String fileName = thingImg.getOriginalFilename();
-        fileName = UUID.randomUUID() + fileName.substring(fileName.lastIndexOf(".")+1);
+        fileName = UUID.randomUUID() + "." + fileName.substring(fileName.lastIndexOf(".")+1);
         File path = new File("classpath");
         try {
             path = new File(ResourceUtils.getURL("classpath:static").getPath());
@@ -40,9 +36,13 @@ public class LostThingsController {
         }catch (Exception e){
             e.printStackTrace();
         }
-        lostThingsService.publishLostthing(request,fileName);
-        lostthingListView();
-        return path.getAbsolutePath();
+        try{
+            lostThingsService.publishLostthing(request,fileName);
+        }catch (Exception e){
+            return publishLostthingView();
+        }
+
+        return lostthingListView();
     }
     @RequestMapping("/lostthingList.html")
     public ModelAndView lostthingListView() {
@@ -55,7 +55,7 @@ public class LostThingsController {
     @RequestMapping("/publishLostthing.html")
     public ModelAndView publishLostthingView(){
         ModelAndView modelAndView = new ModelAndView("things/publishLostthing");
-        modelAndView.addObject("thingTypes",thingTypeService.findAll());
+        modelAndView.addObject("title","发布寻物启事信息");
         return modelAndView;
     }
 }
